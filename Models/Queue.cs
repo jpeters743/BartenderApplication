@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 namespace BartenderApp.Models
 {
-    public class Home
+    public class Queue
     {
-        public string Name { get; set; }
     }
 }

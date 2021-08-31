@@ -7,5 +7,6 @@ namespace BartenderApp.Models
 {
     public class Order
     {
+        public int DrinkId { get; set; }
     }
 }
