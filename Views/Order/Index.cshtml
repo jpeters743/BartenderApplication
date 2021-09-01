@@ -1,0 +1,28 @@
+﻿@model List<BartenderApp.Models.Drink>
+
+<section class="container-fluid">
+    @if (Model.Count > 0)
+            {
+                <table class="table">
+                    <colgroup>
+                        <col style="width:50%"/>
+                        <col style="width:50%"/>
+                        <col style="width:50%"/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Menu & Ordering</th>
+                        </tr>
+                    </thead>
+                    @foreach (var x in Model)
+                {
+                <tr class="row">
+                    <td>@x.DrinkName</td>
+                    <td>@x.DrinkDescription</td>
+                    <td>@x.DrinkPrice</td>
+                    <td><a class="btn btn-info" asp-controller="Order" asp-action="Order">Order</a></td>
+                </tr>
+                }
+                </table>
+            }
+</section>

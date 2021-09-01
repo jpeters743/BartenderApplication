@@ -7,13 +7,33 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using BartenderApp.Models;
 using Microsoft.AspNetCore.Http;
+using BartenderApp.Repository;
+
 namespace BartenderApp.Controllers
 {
     public class OrderController : Controller
     {
+        private FakeRepository _fakeRepository;
+
+        public OrderController(FakeRepository fakeRepository)
+        {
+            _fakeRepository = fakeRepository;
+        }
+
+
         public IActionResult Index()
         {
-            return View("~/Views/Patron/Index.cshtml");
+
+            IEnumerable<Drink> drinks = _fakeRepository.Drinks;
+
+             Console.WriteLine("Showing drinks");
+             drinks = drinks.OrderBy(x => x.DrinkId);
+             
+            return View(drinks.ToList());
+        }
+        public IActionResult Order()
+        {
+            return View();
         }
     }
 }
