@@ -2,11 +2,9 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-    background-color: #647aed;
+    background-color: #000000;
     color: white !important;
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
+   
 }
 
 /* Provide sufficient contrast against white background */
@@ -18,10 +16,11 @@ a {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
+
 }
 
 .navbar {
-    background-color: #647aed;
+    background-color: #000000;
     color: white;
 }
 
@@ -73,7 +72,7 @@ body {
 }
 
 .footer {
-    background-color: #647aed;
+    background-color: #000000;
     color: white !important;
     position: absolute;
     bottom: 0;

@@ -14,10 +14,12 @@ namespace BartenderApp.Controllers
     public class OrderController : Controller
     {
         private FakeRepository _fakeRepository;
+       
 
-        public OrderController(FakeRepository fakeRepository)
+        public OrderController(FakeRepository fakeRepository, FakeOrderRepository fakeOrderRepository)
         {
             _fakeRepository = fakeRepository;
+
         }
 
 
@@ -31,9 +33,29 @@ namespace BartenderApp.Controllers
              
             return View(drinks.ToList());
         }
-        public IActionResult Order()
+        [HttpGet]
+        public IActionResult OrderForm()
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult OrderForm(DrinkOrder drinkOrder)
+        {
+            FakeOrderRepository.AddOrder(drinkOrder);
+            return View("Thanks", drinkOrder);
+        }
+        [HttpGet]
+        //CompletedOrders refers to completed order forms not orders made**
+        public IActionResult CompletedOrders()
+        {
+            return View(FakeOrderRepository.Orders);
+        }
+        [HttpPost]
+        public IActionResult FinishedPrep(DrinkOrder drinkOrder)
+        {
+            FakeOrderRepository.DeleteOrder(drinkOrder);
+            return View("~/Views/Order/CompletedOrders.cshtml");
+        }
+
     }
 }

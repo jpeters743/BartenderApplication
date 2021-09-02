@@ -28,6 +28,7 @@ namespace BartenderApp
         {
 
             services.AddSingleton<FakeRepository>();
+            services.AddSingleton<FakeOrderRepository>();
             services.AddMvc(OptionsBuilderConfigurationExtensions => OptionsBuilderConfigurationExtensions.EnableEndpointRouting = false);
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)

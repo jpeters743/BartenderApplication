@@ -1,0 +1,30 @@
+﻿@model BartenderApp.Models.DrinkOrder
+@{
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>OrderForm</title>
+</head>
+<body>
+    <form asp-action="OrderForm" method="post">
+        <p>
+            <label asp-for="CustomerName">Your name:</label>
+            <input asp-for="CustomerName" />
+        </p>
+        <p>
+            <label asp-for="DrinkName">Drink name you'd like to order:</label>
+            <input asp-for="DrinkName" />
+        </p>
+        <p>
+            <label for="OrderTime">Input current time:</label>
+            <input asp-for="OrderTime">
+        </p>
+        
+
+        <button type="submit">Submit Order</button>
+    </form>
+</body>
+</html>
